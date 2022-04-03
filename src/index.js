@@ -3,11 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+import '@aws-amplify/ui-react/styles.css'
+import {AmplifyProvider} from '@aws-amplify/ui-react'
+
+Amplify.configure(config)
+
+const theme={
+  name:'androy',
+  tokens:{
+    background:{
+      primary:{value:'hotpink'}
+    }
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AmplifyProvider theme={theme}> 
     <App />
-  </React.StrictMode>,
+  </AmplifyProvider>,
   document.getElementById('root')
 );
 
